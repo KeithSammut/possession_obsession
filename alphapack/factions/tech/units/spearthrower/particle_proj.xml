@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<projectile-particle-system>
+    	<texture value="false" luminance="false" path="images/archer_particle.bmp"/>
+    	<model value="true" luminance="false" path="models/spear.g3d"/>
+	<primitive value="line"/>
+	<offset x="0.6" y="1.6" z="1.0"/>
+	<color red="0.0" green="0.0" blue="0.0" alpha="0.0" />
+	<color-no-energy red="0.5" green="0.5" blue="0.5" alpha="0.0" />
+    	<size value="5" />
+    	<size-no-energy value="1" />
+    	<speed value="0" />
+	<gravity value="0"/>
+    	<emission-rate value="0" />
+    	<energy-max value="0" />
+    	<energy-var value="0" />
+
+	<trajectory type="parabolic">
+		<speed value="18"/>
+		<scale value="0.75"/>
+	</trajectory>
+</projectile-particle-system>

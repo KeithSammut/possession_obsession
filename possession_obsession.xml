@@ -1,0 +1,116 @@
+<?xml version="1.0" standalone="yes" ?> 
+<scenario>
+<difficulty value="3"/>
+<players>
+	<player control="cpu-mega" faction="tech" team="2"/>
+	<player control="human" faction="tech" team="1"/>
+	<player control="cpu-mega" faction="tech" team="2"/>
+	<player control="cpu-mega" faction="tech" team="2"/>
+</players>
+<map value="island_siege"/>
+<tileset value="forest"/>
+<tech-tree value="alphapack"/>
+<default-resources value="false"/>
+<default-units value="false"/>
+<default-victory-conditions value="true"/>
+<fog-of-war value="explored"/>
+<scripts>
+<startup>
+
+createUnit('castle', 1, startLocation(1))			
+createUnit('swordman', 1, startLocation(1))
+createUnit('archer_', 1, startLocation(1))
+createUnit('battle_machine', 1, startLocation(1))
+createUnit('worker', 1, startLocation(1))
+createUnit('worker', 1, startLocation(1))
+createUnit('worker', 1, startLocation(1))
+createUnit('guard_', 1, startLocation(1))
+createUnit('archer_', 1, startLocation(1))
+createUnit('catapult_', 1, startLocation(1))
+createUnit('cow', 1, startLocation(1))
+
+                        
+			giveResource('gold', 1, 500); 
+			giveResource('wood', 1, 500);
+			giveResource('stone', 1, 500);
+			giveResource('food', 1, 300); 
+ 
+
+createUnit('colosseum', 0, startLocation(0))			
+createUnit('guard_tower', 0, startLocation(0))
+createUnit('swordsman', 0, startLocation(0))
+createUnit('spearman_', 0, startLocation(0))
+createUnit('spearman_', 0, startLocation(0))
+createUnit('spearman_', 0, startLocation(0))
+createUnit('archer', 0, startLocation(0))
+createUnit('archer', 0, startLocation(0))
+createUnit('catapult', 0, startLocation(0))
+createUnit('guard', 0, startLocation(0))
+createUnit('slave', 0, startLocation(0))
+createUnit('slave', 0, startLocation(0))
+createUnit('slave', 0, startLocation(0))
+createUnit('cow', 0, startLocation(0))
+
+                        
+			giveResource('gold', 0, 500); 
+			giveResource('wood', 0, 500);
+			giveResource('stone', 0, 500);
+			giveResource('food', 0, 300);  
+
+
+createUnit('mage_tower', 2, startLocation(2))
+createUnit('golem', 2, startLocation(2))		
+createUnit('summoner', 2, startLocation(2))	
+createUnit('ghost_armor', 2, startLocation(2))		
+createUnit('battlemage', 2, startLocation(2))
+createUnit('library', 2, startLocation(2))		
+createUnit('archmage_tower', 2, startLocation(2))
+createUnit('daemon', 2, startLocation(2))
+createUnit('daemon', 2, startLocation(2))
+createUnit('initiate', 2, startLocation(2))
+createUnit('initiate', 2, startLocation(2))
+createUnit('initiate', 2, startLocation(2))
+
+                        
+			giveResource('gold', 2, 500); 
+			giveResource('wood', 2, 500);
+			giveResource('stone', 2, 500);
+			giveResource('energy', 2, 14);  
+
+
+createUnit('pyramid', 3, startLocation(3))
+createUnit('slave_', 3, startLocation(3))	
+createUnit('slave_', 3, startLocation(3))	
+createUnit('slave_', 3, startLocation(3))
+createUnit('priest', 3, startLocation(3))
+createUnit('spearman', 3, startLocation(3))
+createUnit('spearman', 3, startLocation(3))
+createUnit('spearthrower', 3, startLocation(3))
+createUnit('farm', 3, startLocation(3))
+createUnit('chicken', 3, startLocation(3))
+
+                     
+			giveResource('gold', 3, 500); 
+			giveResource('wood', 3, 500);
+			giveResource('stone', 3, 500);
+			giveResource('food', 3, 300);  
+
+</startup>
+	
+<unitDied>
+
+unitB = lastDeadUnitKiller()
+unitA = lastDeadUnit()
+
+if lastDeadUnitCauseOfDeath() ~= 3 then
+
+	if unitFaction(unitB) ~= unitFaction(unitA) then
+
+	createUnitNoSpacing(unitName(unitA), unitFaction(unitB), 	unitPosition(unitA))
+
+	end
+end
+
+</unitDied>		
+</scripts>		
+</scenario>
